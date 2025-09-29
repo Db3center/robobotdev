@@ -1,0 +1,23 @@
+{
+  "name": "imersao-bot-dev-2025",
+  "version": "1.0.0",
+  "description": "https://www.luiztools.com.br/bot-dev",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luiztools/imersao-bot-dev-2025.git"
+  },
+  "keywords": [],
+  "author": "LuizTools",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luiztools/imersao-bot-dev-2025/issues"
+  },
+  "homepage": "https://github.com/luiztools/imersao-bot-dev-2025#readme",
+  "dependencies": {
+    "axios": "^1.12.2"
+  }
+}
