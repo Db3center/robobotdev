@@ -9,9 +9,15 @@ Site do VS Code: https://code.visualstudio.com
 
 Como instalar Node + VS Code + Git: https://www.youtube.com/watch?v=iJ-BUhcZOSY
 
+Como criar chaves de produção: https://www.youtube.com/watch?v=2O4qwEVJyu8
+
+Artigo de erros comuns e solução: https://www.luiztools.com.br/post/erros-comuns-com-as-apis-da-binance/
+
 Playlist Programação para Iniciantes: https://www.youtube.com/watch?v=c9mDHLYAIu8&list=PLsGmTzb4NxK3r0_sMLyHKaYX97tPN2QPm
 
-Live 01: https://youtube.com/live/sdrGReFhwoU?feature=share
+Gravação da Live 01: https://youtube.com/live/sdrGReFhwoU?feature=share
+
+Live 02: https://youtube.com/live/uDUyRr20p3s?feature=share
 
 ## Como executar
 
