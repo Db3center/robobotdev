@@ -17,7 +17,9 @@ Playlist Programação para Iniciantes: https://www.youtube.com/watch?v=c9mDHLYA
 
 Gravação da Live 01: https://youtube.com/live/sdrGReFhwoU?feature=share
 
-Live 02: https://youtube.com/live/uDUyRr20p3s?feature=share
+Gravação da Live 02: https://youtube.com/live/uDUyRr20p3s?feature=share
+
+Live 03: https://youtube.com/live/eaZkHwsIdpI?feature=share
 
 ## Como executar
 
