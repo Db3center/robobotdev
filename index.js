@@ -5,8 +5,8 @@ const SYMBOL = "BTCUSDT";
 const QUANTITY = "0.001";
 
 const API_URL = "https://testnet.binance.vision";//https://api.binance.com
-const API_KEY = "XXXXX";
-const SECRET_KEY = "XXXXXX";
+const API_KEY = "IbBIlnojD7nduGfz1Bf20Jsh4Q2LbykZEJuz1BOTXkFE9hJ7YlIt8bzGTAHmC9u5";
+const SECRET_KEY = "7odhm6vPLlMaICBPt5UxRHSg9P4I9aZOWWv2jPEcQtkc00ZlDtqIOZdb3ct7QXIN";
 
 let isOpened = false;
 
