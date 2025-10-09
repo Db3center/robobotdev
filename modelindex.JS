@@ -1,10 +1,6 @@
 const axios = require("axios");
 const crypto = require("crypto");
 
-#const BUY_PRICE = 34160;#
-#const SELL_PRICE = 34501;#
-
-
 const SYMBOL = "BTCUSDT";
 const QUANTITY = "0.001";
 
