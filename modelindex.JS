@@ -1,6 +1,10 @@
 const axios = require("axios");
 const crypto = require("crypto");
 
+#const BUY_PRICE = 34160;#
+#const SELL_PRICE = 34501;#
+
+
 const SYMBOL = "BTCUSDT";
 const QUANTITY = "0.001";
 
@@ -56,7 +60,7 @@ async function start() {
     console.log("SMA: " + sma);
     console.log("Is Opened? " + isOpened);
 
-    if (price <= 200000 && isOpened === false) {
+    if (price <= (sma * 0.9) && isOpened === false) {
         isOpened = true;
         newOrder(SYMBOL, QUANTITY, "buy");
     }
