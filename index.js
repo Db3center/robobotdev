@@ -6,10 +6,22 @@ const WebSocket = require("ws");
 const { getIndicators } = require("./indicators");
 
 let MODE = process.env.MODE || "simulado";
-let API_URL = MODE === "real" ? "https://api.binance.com" : "https://testnet.binance.vision";
 
-const API_KEY = process.env.API_KEY;
-const SECRET_KEY = process.env.SECRET_KEY;
+function getKeys() {
+  return MODE === "real"
+    ? {
+        API_URL: "https://api.binance.com",
+        API_KEY: process.env.API_KEY_REAL,
+        SECRET_KEY: process.env.SECRET_KEY_REAL
+      }
+    : {
+        API_URL: "https://testnet.binance.vision",
+        API_KEY: process.env.API_KEY_TESTNET,
+        SECRET_KEY: process.env.SECRET_KEY_TESTNET
+      };
+}
+
+let { API_URL, API_KEY, SECRET_KEY } = getKeys();
 
 const SYMBOLS = ["BTCUSDT", "XRPUSDT", "DOGEUSDT"];
 const QUANTITY = "0.001";
@@ -31,8 +43,16 @@ function broadcast(message) {
 
 function switchMode() {
   MODE = MODE === "real" ? "simulado" : "real";
-  API_URL = MODE === "real" ? "https://api.binance.com" : "https://testnet.binance.vision";
-  fs.writeFileSync(".env", `MODE=${MODE}\nAPI_KEY=${API_KEY}\nSECRET_KEY=${SECRET_KEY}`);
+  const updatedEnv = `
+MODE=${MODE}
+API_KEY_TESTNET=${process.env.API_KEY_TESTNET}
+SECRET_KEY_TESTNET=${process.env.SECRET_KEY_TESTNET}
+API_KEY_REAL=${process.env.API_KEY_REAL}
+SECRET_KEY_REAL=${process.env.SECRET_KEY_REAL}
+`.trim();
+
+  fs.writeFileSync(".env", updatedEnv);
+  ({ API_URL, API_KEY, SECRET_KEY } = getKeys());
   broadcast(`🔁 Modo alterado para: ${MODE.toUpperCase()}`);
 }
 
@@ -142,4 +162,3 @@ async function startBot() {
 
 setInterval(startBot, 60000);
 startBot();
-
