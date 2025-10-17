@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Crypto Bot Dashboard</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f0f4f8;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .status {
+      margin-bottom: 20px;
+    }
+    .log {
+      white-space: pre-wrap;
+      background: #fff;
+      padding: 10px;
+      border-radius: 6px;
+      max-height: 400px;
+      overflow-y: auto;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    button {
+      margin-right: 10px;
+      padding: 8px 12px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>📈 Painel do Robô de Trading</h1>
+  <div class="status">
+    <strong>Status:</strong> <span id="mode">Carregando...</span>
+  </div>
+  <button onclick="send('toggle-mode')">🔁 Alternar Modo</button>
+  <button onclick="send('stop-bot')">⛔ Parar Robô</button>
+  <div class="log" id="log"></div>
+
+  <script>
+    const ws = new WebSocket("ws://localhost:8080");
+    const log = document.getElementById("log");
+    const mode = document.getElementById("mode");
+
+    ws.onmessage = (event) => {
+      const msg = event.data;
+      log.textContent += `\n${msg}`;
+      log.scrollTop = log.scrollHeight;
+      if (msg.includes("Modo alterado para")) {
+        mode.textContent = msg.split(": ")[1];
+      }
+    };
+
+    function send(msg) {
+      ws.send(msg);
+    }
+  </script>
+</body>
+</html>
